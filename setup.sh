@@ -10,12 +10,5 @@ CONFIGFILE=./k3d-config.yaml
 k3d cluster create ${CLUSTER} --config ${CONFIGFILE}
 export KUBECONFIG=$(k3d kubeconfig write ${CLUSTER})
 
-kubectl apply -f init/namespaces/
-
-# Add web stuff
-echo "Adding leffen web service"
-kubectl apply -f manifests/leffen-web -n leffen-web
-
-
-
-
+kubectl apply --context k3d-test02 -f init/namespaces/
+kubectl apply --context k3d-test02 -f manifests/
