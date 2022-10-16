@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.21
+        image: registry.localhost:5000/my-nginx:latest
         ports:
         - name: http
           containerPort: 80
